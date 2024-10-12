@@ -1,5 +1,6 @@
 import React from "react";
 import { DEFAULT_THEME, Divider, Paper, Text, Button } from "@mantine/core";
+import { useNuiEvent } from "../hooks/useNuiEvent";
 
 const Welcome: React.FC = () => {
     const theme = DEFAULT_THEME;
@@ -9,6 +10,11 @@ const Welcome: React.FC = () => {
     if (appReady) {
         appReady();
     }
+
+    useNuiEvent<any>("testingMessage", (data: any) => {
+        console.log("Received testingMessage");
+        console.log(JSON.stringify(data, null, 2));
+    });
 
     return (
         <div
