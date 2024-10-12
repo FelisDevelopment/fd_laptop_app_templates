@@ -1,3 +1,8 @@
 @tailwind base;
 @tailwind components;
+
+#app {
+  @apply h-full;
+}
+
 @tailwind utilities;

@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { onMounted, ref } from "vue";
+import { onMounted, onUnmounted, ref } from "vue";
 
 const {
   getSettings,
@@ -47,14 +47,25 @@ const notification = () => {
   sendNotification("Test", "This is a test");
 };
 
+const messageHandler = (event: MessageEvent) => {
+  console.log("Received message");
+  console.log(JSON.stringify(event.data, null, 2));
+};
+
 onMounted(async () => {
   appReady();
+
+  window.addEventListener("message", messageHandler);
+});
+
+onUnmounted(() => {
+  window.removeEventListener("message", messageHandler);
 });
 </script>
 
 <template>
   <div
-    class="flex flex-col items-center flex-1 overflow-auto bg-[#25262b] dark:bg-gray-800 gap-10 max-w-full z-50"
+    class="flex flex-col items-center flex-1 overflow-auto h-full bg-[#25262b] dark:bg-gray-800 gap-10 max-w-full z-50"
   >
     <h1 class="text-white">Laptop Test App</h1>
     <div class="flex flex-col gap-5">

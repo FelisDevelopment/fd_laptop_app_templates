@@ -17,6 +17,7 @@ CreateThread(function()
                 "https://images.unsplash.com/photo-1727764673451-3d2494f9e409?q=80&w=1470&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
             }
         },
+        isDefaultApp = true,
         needsUpdate = false,
         icon = ("https://cfx-nui-%s/web/dist/question.svg"):format(GetCurrentResourceName()),
         ui = ("https://cfx-nui-%s/web/dist/index.html"):format(GetCurrentResourceName()),
